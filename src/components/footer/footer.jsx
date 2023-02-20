@@ -8,7 +8,7 @@ function footer() {
     return (
     <Container>
         <CardGroup>
-        
+            <div>oke</div>
             <Card>
               <Card.Img variant="top" src={CartIcon}/>
               <Card.Body>
