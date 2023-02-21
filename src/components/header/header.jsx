@@ -2,22 +2,20 @@ import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 
-function login() {
+function header() {
   return (
     <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark"  style = {{marginBottom: "50px"}}>
       <Container>
-        <Navbar.Brand href="#home">OutSchool</Navbar.Brand>
+        <Navbar.Brand href="/">OutSchool</Navbar.Brand>
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">
           <Nav className="me-auto">
-            <Nav.Link href="#features">Room</Nav.Link>
-            <Nav.Link href="#pricing">Student</Nav.Link>
-            <Nav.Link href="#pricing">Attendance</Nav.Link>
+            <Nav.Link href= "/room">Room</Nav.Link>
           </Nav>
           <Nav>
-            <Nav.Link href="#memes">
+            <Nav.Link href="/teacherDetail">
               <Navbar.Text>
-                Signed in as : <a href="#login">Bui Duc Minh</a>
+                Signed in as : <span >Bui Duc Minh</span>
               </Navbar.Text>
             </Nav.Link>
           </Nav>
@@ -27,4 +25,4 @@ function login() {
   );
 }
 
-export default login
+export default header
