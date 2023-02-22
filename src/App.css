@@ -13,6 +13,16 @@
   }
 }
 
+.footer-custom {
+	border-top: 1px solid rgba(115, 140, 152, 0.2);
+    bottom: 0;
+    text-align: center;
+    color: #818a91;
+    padding: 10px;
+    right: 0;
+    left: 250px;
+    background-color: #fff; }
+
 .App-header {
   background-color: #282c34;
   min-height: 100vh;

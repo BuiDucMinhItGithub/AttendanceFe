@@ -2,6 +2,7 @@ import React from 'react';
 import { Col, Button, Row, Container, Card, Form } from 'react-bootstrap';
 import Breadcrumb from 'react-bootstrap/Breadcrumb';
 import { Calendar } from 'primereact/calendar';
+import { Dialog } from 'primereact/dialog';
 import CartIcon from './image/class.jpg';
 
 function teacherDetail() {
@@ -42,19 +43,13 @@ function teacherDetail() {
                                     </div>
                                 </div>
                                 <div className='row'>
-                                    <div className='col-lg-4 col-md-12 col-xs-12'>
+                                    <div className='col-lg-6 col-md-12 col-xs-12'>
                                       <Form.Group className="form-group mb-3" controlId="formBasicEmail">
                                         <Form.Label>Phone</Form.Label>
                                         <Form.Control type="name" placeholder="Enter email" />
                                       </Form.Group>
                                     </div>
-                                    <div className='col-lg-4 col-md-12 col-xs-12'>
-                                      <Form.Group className="form-group mb-3" controlId="formBasicEmail">
-                                        <Form.Label>Birthday</Form.Label>
-                                        <Form.Control type="name" placeholder="Enter email" />
-                                      </Form.Group>
-                                    </div>
-                                    <div className='col-lg-4 col-md-12 col-xs-12'>
+                                    <div className='col-lg-6 col-md-12 col-xs-12'>
                                       <Form.Group className="form-group mb-3" controlId="formBasicEmail">
                                         <Form.Label>Password</Form.Label>
                                         <Form.Control type="name" placeholder="Enter email" />
@@ -75,8 +70,16 @@ function teacherDetail() {
                                       </Form.Group>
                                     </div>
                                 </div>
+                                <div className='row'>
+                                  <div className='col-lg-4 col-md-12 col-xs-12'>
+                                        <Form.Group className="form-group mb-3" controlId="formBasicEmail">
+                                          <Form.Label>Birthday</Form.Label>
+                                          <Form.Control type="name" placeholder="Enter email" />
+                                        </Form.Group>
+                                      </div>
+                                      </div>
                                 <Button variant="primary" type="submit">
-                                Edit information
+                                Edit
                               </Button>
                               </div>
                             </div>

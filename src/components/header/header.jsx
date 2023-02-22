@@ -4,7 +4,7 @@ import Navbar from 'react-bootstrap/Navbar';
 
 function header() {
   return (
-    <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark"  style = {{marginBottom: "50px"}}>
+    <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark"  style = {{marginBottom: "20px"}}>
       <Container>
         <Navbar.Brand href="/">OutSchool</Navbar.Brand>
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
