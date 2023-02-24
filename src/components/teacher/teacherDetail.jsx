@@ -1,21 +1,25 @@
 import React from 'react';
 import { Col, Button, Row, Container, Card, Form } from 'react-bootstrap';
-import Breadcrumb from 'react-bootstrap/Breadcrumb';
-import { Calendar } from 'primereact/calendar';
-import { Dialog } from 'primereact/dialog';
 import CartIcon from './image/class.jpg';
+import { InputTextarea } from 'primereact/inputtextarea';
+import { ConfirmDialog } from 'primereact/confirmdialog'; // For <ConfirmDialog /> component
+import { confirmDialog } from 'primereact/confirmdialog'; // For confirmDialog method
+import { useState } from 'react';
+import { Calendar } from 'primereact/calendar';
 
-function teacherDetail() {
+function TeacherDetail() {
+  const [address, setAddress] = useState("");
+  const [date, setDate] = useState(0);
+  const confirm = () => {
+    confirmDialog({
+        message: 'Are you sure you want to logout?',
+        header: 'Confirmation',
+        icon: 'pi pi-exclamation-triangle'
+    });
+}
   return (
     <Container>
-            <Breadcrumb>
-                  <Breadcrumb.Item href="#">Home</Breadcrumb.Item>
-                  <Breadcrumb.Item href="https://getbootstrap.com/docs/4.0/components/breadcrumb/">
-                      Teacher
-                  </Breadcrumb.Item>
-                  <Breadcrumb.Item active>Teacher Detail</Breadcrumb.Item>
-              </Breadcrumb>
-              <Row className="vh-100">
+              <Row>
                 <Col md={8} lg={12} xs={12}>
                   <Card>
                     <Card.Body>
@@ -60,36 +64,31 @@ function teacherDetail() {
                                     <div className='col-lg-6 col-md-12 col-xs-12'>
                                       <Form.Group className="form-group mb-3" controlId="formBasicEmail">
                                         <Form.Label>Address</Form.Label>
-                                        <Form.Control type="name" placeholder="Enter email" />
+                                        <br/>
+                                        <InputTextarea value={address} onChange={(e) => setAddress(e.target.value)} rows={5} cols={35} />
                                       </Form.Group>
                                     </div>
-                                    <div className='col-lg-6 col-md-12 col-xs-12'>
-                                      <Form.Group className="form-group mb-3" controlId="formBasicEmail">
-                                        <Form.Label>State</Form.Label>
-                                        <Form.Control type="name" placeholder="Enter email" />
-                                      </Form.Group>
-                                    </div>
-                                </div>
-                                <div className='row'>
-                                  <div className='col-lg-4 col-md-12 col-xs-12'>
+                                    <div className='col-lg-4 col-md-12 col-xs-12'>
                                         <Form.Group className="form-group mb-3" controlId="formBasicEmail">
                                           <Form.Label>Birthday</Form.Label>
-                                          <Form.Control type="name" placeholder="Enter email" />
+                                          <br/>
+                                          <Calendar value={date} onChange={(e) => setDate(e.value)} />
                                         </Form.Group>
                                       </div>
-                                      </div>
+                                </div>
+                                <div className='row'>
+                                  
+                                </div>
                                 <Button variant="primary" type="submit">
                                 Edit
                               </Button>
+                              <Button onClick={confirm} icon="pi pi-check" label="Logout" variant='danger' style={{marginLeft:'10px'}}>Logout</Button>
+                              <ConfirmDialog />
                               </div>
-                            </div>
-                            <div>
-                              
                             </div>
                           </Form>
                         </div>
                       </div>
-                      
                     </Card.Body>
                   </Card>
                 </Col>
@@ -98,4 +97,4 @@ function teacherDetail() {
   )
 }
 
-export default teacherDetail
+export default TeacherDetail

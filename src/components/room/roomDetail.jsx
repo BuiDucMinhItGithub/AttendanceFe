@@ -9,9 +9,12 @@ import { Column } from 'primereact/column';
 function RoomDetail() {
   const [selectedCity, setSelectedCity] = useState("oke");
   const cities = [
-    { Key: 1, Value: 'London' },
-    { Key: 2, Value: 'New York' },
-    { Key: 3, Value: 'Colombo' }    
+    { 
+      'value': 'Open' 
+    }, 
+    { 
+      'value': 'Close' 
+    }
   ]
   return (
     <div>
@@ -26,19 +29,19 @@ function RoomDetail() {
                         <Form>
                           <Form.Group className="form-group col-sm-6 flex-column d-flex mb-3" controlId="formBasicEmail">
                             <Form.Label>Name of room</Form.Label>
-                            <Form.Control type="name" value="Math 12" placeholder="Enter email" />
+                            <Form.Control type="name" defaultValue="Search..." placeholder="Enter email" />
                           </Form.Group>
                           <Form.Group className="form-group col-sm-6 flex-column d-flex mb-3" controlId="formBasicEmail">
                             <Form.Label>Number of student</Form.Label>
-                            <Form.Control type="email" value="10" placeholder="Enter email" />
+                            <Form.Control type="email" defaultValue="Search..." placeholder="Enter email" />
                           </Form.Group>
                           <Form.Group className="form-group col-sm-6 flex-column d-flex mb-3" controlId="Name">
                             <Form.Label>Price per lesson</Form.Label>
-                            <Form.Control type="text" value="70000" placeholder="Enter Name" />
+                            <Form.Control type="text" defaultValue="Search..." placeholder="Enter Name" />
                           </Form.Group>
                           <Form.Group className="form-group col-sm-6 flex-column d-flex mb-3" controlId="Name">
                             <Form.Label>Price per lesson</Form.Label>
-                            <Dropdown value={selectedCity} onChange={(e) => setSelectedCity(e.value)} options={cities} optionLabel="cities.Value" 
+                            <Dropdown value={selectedCity} onChange={(e) => setSelectedCity(e.value)} options={cities} optionLabel="value" 
                                 placeholder="Select state" className="w-full md:w-14rem" />
                           </Form.Group>
                           <div>
