@@ -50,7 +50,6 @@ function RoomList() {
                     </tr>
                 </tbody>
             </Table>
-            
             <Dialog header="Add new room" maximizable visible={visible} style={{ width: '75vw' }} onHide={() => setVisible(false)}>
                 <div className="mb-3 mt-md-4">
                     <div className="mb-3">
