@@ -1,23 +1,47 @@
-import React from 'react'
+import React from 'react';
+import axios from 'axios';
 
-function login() {
-    return (
+function Login() {
+
+  const LoginProcess = async (e) => {
+      e.preventDefault();
+      await axios.post("http://localhost:8080/auth/login", 
+      {
+            username : e.target.elements.username.value,
+            password : e.target.elements.password.value
+      },
+      {
+        headers: {
+          'Access-Control-Allow-Origin': '*',
+          'Content-Type': 'application/json',
+          "Access-Control-Allow-Methods": "GET,PUT,POST,DELETE,PATCH"
+        },
+      })
+      .then((response) => {
+        localStorage.setItem("accessToken", response.data.accessToken);
+        if(response.status === 200){
+            
+        }
+        console.log(response);
+      });
+  };
+  return (
         <div className="Auth-form-container">
-          <form className="Auth-form">
-            <div className="Auth-form-content">
+          <form className="Auth-form" onSubmit={LoginProcess}>
+            <div className="Auth-form-content" >
               <h3 className="Auth-form-title">Sign In</h3>
               <div className="form-group mt-3">
-                <label>Email address</label>
+                <label>Username</label>
                 <input
-                  type="email"
+                  type="ussername" name="username"
                   className="form-control mt-1"
-                  placeholder="Enter email"
+                  placeholder="Enter username"
                 />
               </div>
               <div className="form-group mt-3">
                 <label>Password</label>
                 <input
-                  type="password"
+                  type="password" name='password'
                   className="form-control mt-1"
                   placeholder="Enter password"
                 />
@@ -28,12 +52,12 @@ function login() {
                 </button>
               </div>
               <p className="forgot-password text-right mt-2">
-                Forgot <a href="#">password?</a>
+                {/* Forgot <a href="#">password?</a> */}
               </p>
             </div>
           </form>
         </div>
-      )
+  )
 }
 
-export default login
+export default Login

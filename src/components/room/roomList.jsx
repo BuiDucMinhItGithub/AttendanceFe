@@ -22,6 +22,13 @@ function RoomList() {
             name :name,
             pricePerLesson :pricePerLesson,
             numberOfStudent: numberOfStudent
+      },
+      {
+        headers: {
+          'Access-Control-Allow-Origin': '*',
+          'Content-Type': 'application/json',
+          "Access-Control-Allow-Methods": "GET,PUT,POST,DELETE,PATCH,OPTIONS"
+        },
       })
       .then((response) => {
         console.log(response);
