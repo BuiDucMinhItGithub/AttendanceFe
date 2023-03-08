@@ -1,8 +1,15 @@
-import React from 'react';
+import {React } from "react";
 import axios from 'axios';
+import { useContext } from "react";
+import { AuthContext } from "../../context/AuthContext";
+import { useNavigate } from "react-router-dom";
+
+
+
 
 function Login() {
-
+  const authContext = useContext(AuthContext);
+  const navigate = useNavigate();
   const LoginProcess = async (e) => {
       e.preventDefault();
       await axios.post("http://localhost:8080/auth/login", 
@@ -18,13 +25,15 @@ function Login() {
         },
       })
       .then((response) => {
-        localStorage.setItem("accessToken", response.data.accessToken);
         if(response.status === 200){
-            
+          localStorage.setItem("accessToken", response.data.accessToken);
+          authContext.login();
+          navigate("/attendance"); 
         }
         console.log(response);
       });
   };
+  
   return (
         <div className="Auth-form-container">
           <form className="Auth-form" onSubmit={LoginProcess}>
